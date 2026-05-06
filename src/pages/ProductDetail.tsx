@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CheckCircle } from "lucide-react";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import ProductGallery from "@/components/ProductGallery";
@@ -45,7 +45,30 @@ const ProductDetail = () => {
                 {product.category}
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{product.name}</h1>
+              <p className="text-lg font-semibold text-foreground mb-4">{product.price}</p>
               <p className="text-muted-foreground mb-6">{product.description}</p>
+              <div className="mb-6">
+                <h2 className="font-heading text-sm uppercase tracking-widest text-foreground mb-3">Key Features</h2>
+                <ul className="space-y-2">
+                  {product.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm text-foreground">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mb-6">
+                <h2 className="font-heading text-sm uppercase tracking-widest text-foreground mb-3">Compatibility</h2>
+                <ul className="space-y-2">
+                  {product.compatibility.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-foreground">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <Button size="lg" asChild>
                 <Link to="/contact">Enquire Now</Link>
               </Button>
@@ -54,30 +77,15 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="section-alt section-padding">
-        <div className="container mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {product.features.map((feature) => (
-              <div key={feature} className="flex items-start gap-3 p-4 bg-card border border-border rounded">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                <span className="text-foreground">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Specifications */}
-      <section className="section-padding bg-background">
+      <section className="section-padding section-alt">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Technical Specifications</h2>
-          <div className="border border-border rounded overflow-hidden">
+          <div className="border border-border rounded overflow-hidden bg-background">
             <table className="w-full">
               <tbody>
                 {Object.entries(product.specifications).map(([key, value], i) => (
-                  <tr key={key} className={i % 2 === 0 ? "bg-muted" : "bg-background"}>
+                  <tr key={key} className={i % 2 === 0 ? "bg-background" : "bg-muted/50"}>
                     <td className="px-6 py-3 font-heading font-semibold text-sm uppercase tracking-wider text-foreground w-1/3">
                       {key}
                     </td>
@@ -90,20 +98,6 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Compatibility */}
-      <section className="section-alt section-padding">
-        <div className="container mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Compatibility</h2>
-          <ul className="space-y-3">
-            {product.compatibility.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-foreground">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
       {/* Enquiry Form */}
       <section className="section-padding bg-background">
