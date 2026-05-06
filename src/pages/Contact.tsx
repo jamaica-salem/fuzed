@@ -46,11 +46,14 @@ const Contact = () => {
                         {item.label}
                       </h3>
                       {item.href ? (
-                        <a href={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                          href={item.href}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors break-all min-w-0 block"
+                        >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-sm text-muted-foreground whitespace-pre-line">{item.value}</p>
+                        <p className="text-sm text-muted-foreground whitespace-pre-line break-words">{item.value}</p>
                       )}
                     </div>
                   </div>
