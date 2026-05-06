@@ -17,6 +17,7 @@ import smokeAlarmImage2 from "@/assets/products/smoke-alarm/2.jpg";
 export interface Product {
   id: string;
   name: string;
+  price: string;
   shortDescription: string;
   description: string;
   images?: string[];
@@ -30,6 +31,7 @@ export const products: Product[] = [
   {
     id: "single-channel-receiver-switch",
     name: "Single Channel Receiver Switch",
+    price: "$50 + GST",
     shortDescription: "Single roller shutter control with 3-button open/stop/close operation.",
     description:
       "Single roller shutter control. 3 button operation open/stop/close.",
@@ -62,6 +64,7 @@ export const products: Product[] = [
   {
     id: "dual-channel-receiver-switch",
     name: "Dual Channel Receiver Switch",
+    price: "$50 + GST",
     shortDescription: "Double roller shutter control with 3-button open/stop/close operation.",
     description:
       "Double roller shutter control. 3 button operation open/stop/close.",
@@ -94,6 +97,7 @@ export const products: Product[] = [
   {
     id: "rf-multi-channel-transmitter",
     name: "RF Multi Channel Transmitter",
+    price: "$35 + GST",
     shortDescription:
       "Multi channel roller shutter control with open/stop/close and master all-channel control.",
     description:
@@ -123,6 +127,7 @@ export const products: Product[] = [
   {
     id: "keyring-remote-control",
     name: "Keyring Remote Control",
+    price: "$40 + GST",
     shortDescription:
       "3-button open/stop/close remote with multi-channel programming support.",
     description:
@@ -150,6 +155,7 @@ export const products: Product[] = [
   {
     id: "rf-smoke-detector-transmitter",
     name: "RF Smoke Detector Transmitter",
+    price: "$45 + GST",
     shortDescription:
       "Wireless smoke alarm transmitter that signals receiver switches to open roller shutters during fire events.",
     description:
