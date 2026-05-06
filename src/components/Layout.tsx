@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Facebook } from "lucide-react";
+import { Menu, X, Phone, Facebook, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import logo from "@/assets/fuzed-logo.jpg";
@@ -111,11 +111,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Content */}
-      <main className="flex-1">
+      <main className="flex-1 pb-20 lg:pb-0">
         <div key={location.pathname} className="animate-fade-in">
           {children}
         </div>
       </main>
+
+      {/* Sticky Mobile Call / Quote Actions */}
+      <div className="fixed bottom-0 inset-x-0 z-50 lg:hidden border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+        <div className="grid grid-cols-2 gap-2 p-3">
+          <a
+            href="tel:0409268774"
+            className="inline-flex items-center justify-center gap-2 rounded bg-primary px-4 py-3 text-sm font-heading font-semibold uppercase tracking-wider text-primary-foreground"
+          >
+            <Phone className="w-4 h-4" />
+            Call Now
+          </a>
+          <Link
+            to="/contact#quick-quote"
+            className="inline-flex items-center justify-center gap-2 rounded border border-border bg-background px-4 py-3 text-sm font-heading font-semibold uppercase tracking-wider text-foreground"
+          >
+            <FileText className="w-4 h-4" />
+            Quick Quote
+          </Link>
+        </div>
+      </div>
 
       {/* Footer */}
       <footer className="bg-secondary text-secondary-foreground">
