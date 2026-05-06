@@ -19,8 +19,11 @@ const Contact = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-6">Send an Enquiry</h2>
+            <div id="quick-quote">
+              <h2 className="text-2xl font-bold text-foreground mb-2">Quick Quote Form</h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                Share your job details and upload photos for a faster, more accurate quote.
+              </p>
               <EnquiryForm />
             </div>
 
