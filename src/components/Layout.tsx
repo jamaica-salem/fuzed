@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Facebook, FileText } from "lucide-react";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import logo from "@/assets/fuzed-logo.jpg";
+import logoDark from "@/assets/fuzed-logo-dark.png";
+import logoLight from "@/assets/fuzed-logo-light.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -16,7 +18,14 @@ const navLinks = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
   const location = useLocation();
+  const headerLogo = mounted ? (resolvedTheme === "dark" ? logoLight : logoDark) : logoDark;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -48,7 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="bg-background border-b border-border sticky top-0 z-50">
         <div className="container mx-auto flex items-center justify-between h-16 px-4">
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Fuzed Electrical Solutions" className="h-10 w-auto" />
+            <img src={headerLogo} alt="Fuzed Electrical Solutions" className="h-12 md:h-14 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -142,7 +151,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <img src={logo} alt="Fuzed Electrical Solutions" className="h-12 w-auto mb-4 brightness-200" />
+              <img src={logoLight} alt="Fuzed Electrical Solutions" className="h-20 md:h-24 w-auto mb-4 brightness-200" />
               <p className="text-sm text-secondary-foreground/70">
                 Professional roller shutter accessories and electrical solutions for Melbourne and Victoria.
               </p>
