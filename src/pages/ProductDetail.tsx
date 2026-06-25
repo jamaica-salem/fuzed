@@ -45,7 +45,6 @@ const ProductDetail = () => {
                 {product.category}
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{product.name}</h1>
-              <p className="text-lg font-semibold text-foreground mb-4">{product.price}</p>
               <p className="text-muted-foreground mb-6">{product.description}</p>
               <div className="mb-6">
                 <h2 className="font-heading text-sm uppercase tracking-widest text-foreground mb-3">Key Features</h2>

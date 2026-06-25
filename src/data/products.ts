@@ -12,12 +12,10 @@ import singleChannelImage1 from "@/assets/products/single-channel/1.jpg";
 import singleChannelImage2 from "@/assets/products/single-channel/2.jpg";
 import singleChannelImage3 from "@/assets/products/single-channel/3.jpg";
 import smokeAlarmImage1 from "@/assets/products/smoke-alarm/1.jpg";
-import smokeAlarmImage2 from "@/assets/products/smoke-alarm/2.jpg";
 
 export interface Product {
   id: string;
   name: string;
-  price: string;
   shortDescription: string;
   description: string;
   images?: string[];
@@ -31,7 +29,6 @@ export const products: Product[] = [
   {
     id: "single-channel-receiver-switch",
     name: "Single Channel Receiver Switch",
-    price: "$50 + GST",
     shortDescription: "Single roller shutter control with 3-button open/stop/close operation.",
     description:
       "Single roller shutter control. 3 button operation open/stop/close.",
@@ -64,7 +61,6 @@ export const products: Product[] = [
   {
     id: "dual-channel-receiver-switch",
     name: "Dual Channel Receiver Switch",
-    price: "$50 + GST",
     shortDescription: "Double roller shutter control with 3-button open/stop/close operation.",
     description:
       "Double roller shutter control. 3 button operation open/stop/close.",
@@ -97,7 +93,6 @@ export const products: Product[] = [
   {
     id: "rf-multi-channel-transmitter",
     name: "RF Multi Channel Transmitter",
-    price: "$35 + GST",
     shortDescription:
       "Multi channel roller shutter control with open/stop/close and master all-channel control.",
     description:
@@ -105,9 +100,9 @@ export const products: Product[] = [
     images: [multiChannelImage1, multiChannelImage2, multiChannelImage3, multiChannelImage4, multiChannelImage5],
     features: [
       "Simple press buttons",
-      "Compatible with single channel receiver switches",
-      "Compatible with dual channel receiver switches",
-      "Compatible with RF motors",
+      "Clear easy to read display",
+      "16 channels",
+      "Customise maximum channel display",
     ],
     specifications: {
       Model: "AC123-16",
@@ -127,7 +122,6 @@ export const products: Product[] = [
   {
     id: "keyring-remote-control",
     name: "Keyring Remote Control",
-    price: "$40 + GST",
     shortDescription:
       "3-button open/stop/close remote with multi-channel programming support.",
     description:
@@ -135,8 +129,9 @@ export const products: Product[] = [
     images: [keyringImage1, keyringImage2],
     features: [
       "Simple press buttons",
-      "Compatible with single channel receiver switches",
-      "Compatible with dual channel receiver switches",
+      "Compact size",
+      "Ideal for multiple family members and or employees",
+      "Operate individual or multiple roller shutters",
     ],
     specifications: {
       Model: "AC116",
@@ -149,22 +144,21 @@ export const products: Product[] = [
     compatibility: [
       "Single channel receiver switches",
       "Dual channel receiver switches",
+      "RF motors",
     ],
     category: "Remote Controls",
   },
   {
     id: "rf-smoke-detector-transmitter",
     name: "RF Smoke Detector Transmitter",
-    price: "$45 + GST",
     shortDescription:
-      "Wireless smoke alarm transmitter that signals receiver switches to open roller shutters during fire events.",
+      "Wireless smoke alarm transmitter that signals receiver switches to open roller shutters when detector triggers.",
     description:
       "The wireless smoke alarm sends a signal to the Single and Dual channel receiver switches that control the roller shutters. When a fire occurs, the smoke alarm triggers an alarm, and then sends a radio signal to the receiver switches to open the roller shutters.",
-    images: [smokeAlarmImage1, smokeAlarmImage2],
+    images: [smokeAlarmImage1],
     features: [
-      "Compatible with Single receiver switches",
-      "Compatible with Dual receiver switches",
-      "Not hard wired - standard installation will be next to existing hard wired smoke detectors",
+      "Standard smoke alarm operation",
+      "Installed next to existing smoke alarms (Not a replacement for existing hard-wired smoke alarms)",
     ],
     specifications: {
       Model: "AC104",

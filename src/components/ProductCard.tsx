@@ -29,7 +29,6 @@ export default function ProductCard({ product }: { product: Product }) {
         <h3 className="font-heading text-lg font-bold mt-1 mb-2 text-foreground group-hover:text-primary transition-colors">
           {product.name}
         </h3>
-        <p className="text-sm font-semibold text-foreground mb-2">{product.price}</p>
         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
           {product.shortDescription}
         </p>
