@@ -97,8 +97,7 @@ const About = () => {
             {[
               "Registered Electrical Contractor: 28042",
               "Business Number: 58 624 535 584",
-              "Full compliance with AS/NZS 3000 Wiring Rules",
-              "All installations performed in compliance with applicable Australian electrical safety regulations",
+              "All installations performed in compliance with Australian electrical safety regulations",
               "Public liability and professional indemnity insured",
               "Manufacturer warranty provided on supplied accessories and components",
             ].map((item) => (
