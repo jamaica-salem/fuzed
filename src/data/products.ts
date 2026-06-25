@@ -13,12 +13,28 @@ import singleChannelImage2 from "@/assets/products/single-channel/2.jpg";
 import singleChannelImage3 from "@/assets/products/single-channel/3.jpg";
 import smokeAlarmImage1 from "@/assets/products/smoke-alarm/1.jpg";
 
+import dualDark1 from "@/assets/products/dual-channel/1-dark.jpeg";
+import dualDark2 from "@/assets/products/dual-channel/2-dark.jpeg";
+import dualDark3 from "@/assets/products/dual-channel/3-dark.jpeg";
+import keyringDark1 from "@/assets/products/keyring/1-dark.jpeg";
+import keyringDark2 from "@/assets/products/keyring/2-dark.jpeg";
+import multiChannelDark1 from "@/assets/products/multi-channel/1-dark.jpeg";
+import multiChannelDark2 from "@/assets/products/multi-channel/2-dark.jpeg";
+import multiChannelDark3 from "@/assets/products/multi-channel/3-dark.jpeg";
+import multiChannelDark4 from "@/assets/products/multi-channel/4-dark.jpeg";
+import multiChannelDark5 from "@/assets/products/multi-channel/5-dark.jpeg";
+import singleChannelDark1 from "@/assets/products/single-channel/1-dark.jpeg";
+import singleChannelDark2 from "@/assets/products/single-channel/2-dark.jpeg";
+import singleChannelDark3 from "@/assets/products/single-channel/3-dark.jpeg";
+import smokeAlarmDark1 from "@/assets/products/smoke-alarm/1-dark.jpeg";
+
 export interface Product {
   id: string;
   name: string;
   shortDescription: string;
   description: string;
   images?: string[];
+  darkImages?: string[];
   features: string[];
   specifications: Record<string, string>;
   compatibility: string[];
@@ -33,6 +49,7 @@ export const products: Product[] = [
     description:
       "Single roller shutter control. 3 button operation open/stop/close.",
     images: [singleChannelImage1, singleChannelImage2, singleChannelImage3],
+    darkImages: [singleChannelDark1, singleChannelDark2, singleChannelDark3],
     features: [
       "Simple press buttons",
       "Compatible with remote controls",
@@ -65,6 +82,7 @@ export const products: Product[] = [
     description:
       "Double roller shutter control. 3 button operation open/stop/close.",
     images: [dualImage1, dualImage2, dualImage3],
+    darkImages: [dualDark1, dualDark2, dualDark3],
     features: [
       "Simple press buttons",
       "Compatible with remote controls",
@@ -98,6 +116,7 @@ export const products: Product[] = [
     description:
       "Multi channel roller shutter control + 3 button operation open/stop/close + Multi selection channels or master channel to control all.",
     images: [multiChannelImage1, multiChannelImage2, multiChannelImage3, multiChannelImage4, multiChannelImage5],
+    darkImages: [multiChannelDark1, multiChannelDark2, multiChannelDark3, multiChannelDark4, multiChannelDark5],
     features: [
       "Simple press buttons",
       "Clear easy to read display",
@@ -127,6 +146,7 @@ export const products: Product[] = [
     description:
       "3 button operation open/stop/close + multi channel programming to Single and Dual channel receiver switches.",
     images: [keyringImage1, keyringImage2],
+    darkImages: [keyringDark1, keyringDark2],
     features: [
       "Simple press buttons",
       "Compact size",
@@ -156,6 +176,7 @@ export const products: Product[] = [
     description:
       "The wireless smoke alarm sends a signal to the Single and Dual channel receiver switches that control the roller shutters. When a fire occurs, the smoke alarm triggers an alarm, and then sends a radio signal to the receiver switches to open the roller shutters.",
     images: [smokeAlarmImage1],
+    darkImages: [smokeAlarmDark1],
     features: [
       "Standard smoke alarm operation",
       "Installed next to existing smoke alarms (Not a replacement for existing hard-wired smoke alarms)",

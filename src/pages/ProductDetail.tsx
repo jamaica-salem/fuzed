@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useTheme } from "next-themes";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
@@ -9,6 +11,12 @@ import ProductCard from "@/components/ProductCard";
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (!product) {
     return (
@@ -20,6 +28,10 @@ const ProductDetail = () => {
   }
 
   const relatedProducts = products.filter((p) => p.id !== product.id).slice(0, 3);
+  const showDark = mounted && resolvedTheme === "dark";
+  const galleryImages = showDark && product.darkImages && product.darkImages.length > 0
+    ? product.darkImages
+    : product.images;
 
   return (
     <>
@@ -37,7 +49,7 @@ const ProductDetail = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* 360 Viewer */}
-            <ProductGallery productName={product.name} images={product.images} />
+            <ProductGallery productName={product.name} images={galleryImages} />
 
             {/* Product Info */}
             <div>

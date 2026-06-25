@@ -1,15 +1,29 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import type { Product } from "@/data/products";
 
 export default function ProductCard({ product }: { product: Product }) {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const showDark = mounted && resolvedTheme === "dark";
+  const imageSrc = showDark && product.darkImages?.[0] 
+    ? product.darkImages[0] 
+    : (product.images?.[0] || "");
+
   return (
     <div className="group bg-card border border-border rounded overflow-hidden transition-shadow hover:shadow-lg">
       <div className="aspect-square bg-muted flex items-center justify-center p-8">
-        {product.images?.[0] ? (
+        {imageSrc ? (
           <img
-            src={product.images[0]}
+            src={imageSrc}
             alt={product.name}
             className="max-w-full max-h-full object-contain"
             loading="lazy"
