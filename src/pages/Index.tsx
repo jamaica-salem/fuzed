@@ -25,7 +25,7 @@ const Index = () => {
       {/* 1. Hero Section */}
       <section className="bg-background section-padding relative overflow-hidden">
         {/* Subtle Watermark Logo */}
-        <div className="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-[350px] sm:w-[500px] md:w-[650px] h-[350px] sm:h-[500px] md:h-[650px] pointer-events-none select-none z-0 opacity-[0.04] dark:opacity-[0.02]">
+        <div className="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-[350px] sm:w-[500px] md:w-[650px] h-[350px] sm:h-[500px] md:h-[650px] pointer-events-none select-none z-0 opacity-[0.03] dark:opacity-[0.015]">
           <img src={logoDark} alt="" className="w-full h-full object-contain dark:hidden" />
           <img src={logoLight} alt="" className="w-full h-full object-contain hidden dark:block" />
         </div>

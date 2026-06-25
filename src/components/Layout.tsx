@@ -56,9 +56,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Main Nav */}
       <header className="bg-background border-b border-border sticky top-0 z-50">
-        <div className="container mx-auto flex items-center justify-between h-20 px-4">
+        <div className="container mx-auto flex items-center justify-between h-28 px-4">
           <Link to="/" className="flex items-center gap-3">
-            <img src={headerLogo} alt="Fuzed Electrical Solutions" className="h-14 md:h-16 w-auto" />
+            <img src={headerLogo} alt="Fuzed Electrical Solutions" className="h-20 md:h-24 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -67,7 +67,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-primary ${
+                className={`font-heading text-base font-bold uppercase tracking-wider transition-colors hover:text-primary ${
                   location.pathname === link.path ? "text-primary" : "text-foreground"
                 }`}
               >
@@ -77,7 +77,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="hidden lg:flex items-center gap-2">
-            <Button asChild>
+            <Button asChild size="lg">
               <Link to="/contact">Enquire Now</Link>
             </Button>
             <ThemeToggle />
