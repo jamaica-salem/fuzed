@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import heroImage from "@/assets/hero-product.jpg";
+import logoDark from "@/assets/fuzed-logo-dark.png";
+import logoLight from "@/assets/fuzed-logo-light.png";
 
 const Index = () => {
-  const featuredProducts = products.slice(0, 4);
   const highlightProductIds = [
     "dual-channel-receiver-switch",
     "rf-multi-channel-transmitter",
@@ -19,28 +20,28 @@ const Index = () => {
   return (
     <>
       {/* SEO */}
-      <title>Fuzed Electrical Solutions — Roller Shutter Accessories Melbourne</title>
+      <title>Fuzed Electrical Solutions — Professional Electricians & Roller Shutter Specialists Melbourne</title>
 
       {/* 1. Hero Section */}
-      <section className="bg-background section-padding">
-        <div className="container mx-auto">
+      <section className="bg-background section-padding relative overflow-hidden">
+        {/* Subtle Watermark Logo */}
+        <div className="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-[350px] sm:w-[500px] md:w-[650px] h-[350px] sm:h-[500px] md:h-[650px] pointer-events-none select-none z-0 opacity-[0.04] dark:opacity-[0.02]">
+          <img src={logoDark} alt="" className="w-full h-full object-contain dark:hidden" />
+          <img src={logoLight} alt="" className="w-full h-full object-contain hidden dark:block" />
+        </div>
+
+        <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <span className="font-heading text-sm uppercase tracking-widest text-primary font-semibold mb-4 block">
-                Roller Shutter Accessories — Melbourne
-              </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground">
                 Powering Homes, Businesses & Roller Shutter Systems Across Melbourne
               </h1>
               <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                Professional electrical installations, maintenance and specialist wiring for electric roller shutters, blinds and awnings across Melbourne and Victoria.
+                Professional electrical services, installations, maintenance and specialists in roller shutters, outdoor blinds and awnings across Melbourne.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button variant="hero" size="xl" asChild>
                   <Link to="/contact">Enquire Now</Link>
-                </Button>
-                <Button variant="hero-outline" size="xl" asChild>
-                  <Link to="/products">View Products <ArrowRight className="w-5 h-5 ml-1" /></Link>
                 </Button>
               </div>
             </div>
@@ -56,85 +57,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 2. Product Grid */}
+      {/* 2. Electrical Services Preview */}
       <section className="section-alt section-padding">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Our Products</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Professional roller shutter accessories engineered for Australian conditions.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/products">View All Products <ArrowRight className="w-4 h-4 ml-1" /></Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Why Choose Our Accessories */}
-      <section className="section-padding bg-background">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-            Why Choose Our Accessories
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Settings,
-                title: "Smart Integrated Control System",
-                desc: "A unified 433.92 MHz RF ecosystem that delivers seamless, reliable control across shutters, blinds, awnings, and motorised systems.",
-              },
-              {
-                icon: CheckCircle,
-                title: "Effortless Multi-Channel Operation",
-                desc: "Intuitively control single or multiple installations with flexible transmitter options designed for both home and commercial automation.",
-              },
-              {
-                icon: Shield,
-                title: "Intelligent Safety Integration",
-                desc: "RF smoke detector compatibility enables automatic shutter activation during emergencies for enhanced protection and response.",
-              },
-              {
-                icon: Zap,
-                title: "Built for Demanding Conditions",
-                desc: "Engineered for industrial-grade reliability with stable performance across extreme temperatures and long-term daily use.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="text-center p-6">
-                <div className="w-14 h-14 mx-auto mb-4 bg-muted rounded flex items-center justify-center">
-                  <item.icon className="w-7 h-7 text-foreground" />
-                </div>
-                <h3 className="font-heading text-lg font-bold mb-2 text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Featured Products */}
-      <section className="section-alt section-padding">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-            Featured Products
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {highlightProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Electrical Services Preview */}
-      <section className="section-padding bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Electrical Services</h2>
@@ -177,8 +101,68 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 6. Compliance / Australian Standards */}
+      {/* 3. Featured Products */}
+      <section className="section-padding bg-background">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
+            Featured Products
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {highlightProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/products">View All Products <ArrowRight className="w-4 h-4 ml-1" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Why Choose Our Accessories */}
       <section className="section-alt section-padding">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
+            Why Choose Our Accessories
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Settings,
+                title: "Smart Integrated Control System",
+                desc: "A unified 433.92 MHz RF ecosystem that delivers seamless, reliable control across shutters, blinds, awnings, and motorised systems.",
+              },
+              {
+                icon: CheckCircle,
+                title: "Effortless Multi-Channel Operation",
+                desc: "Intuitively control single or multiple installations with flexible transmitter options designed for both home and commercial automation.",
+              },
+              {
+                icon: Shield,
+                title: "Intelligent Safety Integration",
+                desc: "RF smoke detector compatibility enables automatic shutter activation during emergencies for enhanced protection and response.",
+              },
+              {
+                icon: Zap,
+                title: "Built for Demanding Conditions",
+                desc: "Engineered for industrial-grade reliability with stable performance across extreme temperatures and long-term daily use.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="text-center p-6">
+                <div className="w-14 h-14 mx-auto mb-4 bg-muted rounded flex items-center justify-center">
+                  <item.icon className="w-7 h-7 text-foreground" />
+                </div>
+                <h3 className="font-heading text-lg font-bold mb-2 text-foreground">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Compliance / Australian Standards */}
+      <section className="section-padding bg-background">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -211,7 +195,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 7. Final CTA Strip */}
+      {/* 6. Final CTA Strip */}
       <section className="bg-primary section-padding">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">

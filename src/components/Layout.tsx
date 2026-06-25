@@ -9,8 +9,8 @@ import logoLight from "@/assets/fuzed-logo-light.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "Products", path: "/products" },
   { label: "Services", path: "/services" },
+  { label: "Products", path: "/products" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
   { label: "FAQs", path: "/faqs" },
@@ -33,8 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="bg-secondary text-secondary-foreground text-sm py-2 px-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <span className="hidden sm:inline">Ravenhall, Victoria — Electrical Services</span>
-            <a href="tel:0409268774" className="flex items-center gap-1 font-medium hover:text-primary transition-colors">
+            <a href="tel:0409268774" className="flex items-center gap-1.5 font-medium hover:text-primary transition-colors">
               <Phone className="w-3.5 h-3.5" />
               0409 268 774
             </a>
@@ -55,9 +54,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Main Nav */}
       <header className="bg-background border-b border-border sticky top-0 z-50">
-        <div className="container mx-auto flex items-center justify-between h-16 px-4">
+        <div className="container mx-auto flex items-center justify-between h-20 px-4">
           <Link to="/" className="flex items-center gap-3">
-            <img src={headerLogo} alt="Fuzed Electrical Solutions" className="h-12 md:h-14 w-auto" />
+            <img src={headerLogo} alt="Fuzed Electrical Solutions" className="h-14 md:h-16 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
