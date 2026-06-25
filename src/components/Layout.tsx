@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import logoDark from "@/assets/fuzed-logo-dark.png";
 import logoLight from "@/assets/fuzed-logo-light.png";
+import fuzedHorizontalLogo from "@/assets/fuzed-horizontal-logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -22,6 +23,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const { resolvedTheme } = useTheme();
   const location = useLocation();
   const headerLogo = mounted ? (resolvedTheme === "dark" ? logoLight : logoDark) : logoDark;
+  const footerLogo = fuzedHorizontalLogo;
 
   useEffect(() => {
     setMounted(true);
@@ -150,10 +152,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <img src={logoLight} alt="Fuzed Electrical Solutions" className="h-20 md:h-24 w-auto mb-4 brightness-200" />
-              <p className="text-sm text-secondary-foreground/70">
-                Professional roller shutter accessories and electrical solutions for Melbourne and Victoria.
-              </p>
+              <img src={footerLogo} alt="Fuzed Electrical Solutions" className="h-24 md:h-28 w-auto mb-4 object-contain" />
             </div>
             <div>
               <h4 className="font-heading text-base font-bold mb-4">Products</h4>
