@@ -26,6 +26,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const headerLogo = mounted ? (resolvedTheme === "dark" ? logoLight : logoDark) : logoDark;
   const footerLogo = fuzedHorizontalLogo;
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     setMounted(true);
 
@@ -91,7 +98,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Center Logo (Desktop + Mobile) */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10">
-            <Link to="/" className="flex items-center">
+            <Link to="/" onClick={handleLogoClick} className="flex items-center">
               <img
                 src={headerLogo}
                 alt="Fuzed Electrical Solutions"
