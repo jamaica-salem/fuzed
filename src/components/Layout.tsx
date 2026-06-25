@@ -20,6 +20,7 @@ const navLinks = [
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { resolvedTheme } = useTheme();
   const location = useLocation();
   const headerLogo = mounted ? (resolvedTheme === "dark" ? logoLight : logoDark) : logoDark;
@@ -27,6 +28,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
+
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -56,14 +68,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Main Nav */}
       <header className="bg-background border-b border-border sticky top-0 z-50">
-        <div className="container mx-auto flex items-center justify-between h-28 px-4">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={headerLogo} alt="Fuzed Electrical Solutions" className="h-20 md:h-24 w-auto" />
-          </Link>
+        <div className="container mx-auto flex items-center justify-between lg:justify-normal h-28 px-4 relative">
+          {/* Mobile ThemeToggle (left) */}
+          <div className="lg:hidden z-10">
+            <ThemeToggle />
+          </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+          {/* Desktop Left Nav */}
+          <nav className="hidden lg:flex items-center gap-8 w-1/3 justify-start">
+            {navLinks.slice(0, 3).map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
@@ -76,18 +89,48 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-2">
-            <Button asChild size="lg">
-              <Link to="/contact">Enquire Now</Link>
-            </Button>
-            <ThemeToggle />
+          {/* Center Logo (Desktop + Mobile) */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10">
+            <Link to="/" className="flex items-center">
+              <img
+                src={headerLogo}
+                alt="Fuzed Electrical Solutions"
+                className={`h-14 lg:h-20 w-auto transition-all duration-300 ${
+                  location.pathname !== "/" || isScrolled
+                    ? "opacity-100 scale-100 pointer-events-auto"
+                    : "opacity-0 scale-95 pointer-events-none"
+                }`}
+              />
+            </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <div className="lg:hidden flex items-center gap-1">
-            <ThemeToggle />
+          {/* Desktop Right Nav / Button */}
+          <div className="hidden lg:flex items-center gap-8 w-1/3 ml-auto justify-end">
+            <nav className="flex items-center gap-8">
+              {navLinks.slice(3).map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`font-heading text-base font-bold uppercase tracking-wider transition-colors hover:text-primary ${
+                    location.pathname === link.path ? "text-primary" : "text-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="flex items-center gap-2">
+              <Button asChild size="lg">
+                <Link to="/contact">Enquire Now</Link>
+              </Button>
+              <ThemeToggle />
+            </div>
+          </div>
+
+          {/* Mobile Menu Toggle (right) */}
+          <div className="lg:hidden z-10">
             <button
-              className="p-2"
+              className="p-2 text-foreground"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >

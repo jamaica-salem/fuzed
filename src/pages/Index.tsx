@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "next-themes";
 import { ArrowRight, Shield, Zap, Settings, CheckCircle, Home, Building2, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
@@ -8,6 +10,15 @@ import logoDark from "@/assets/fuzed-logo-dark.png";
 import logoLight from "@/assets/fuzed-logo-light.png";
 
 const Index = () => {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const heroLogo = mounted ? (resolvedTheme === "dark" ? logoLight : logoDark) : logoDark;
+
   const highlightProductIds = [
     "dual-channel-receiver-switch",
     "rf-multi-channel-transmitter",
@@ -24,35 +35,32 @@ const Index = () => {
 
       {/* 1. Hero Section */}
       <section className="bg-background section-padding relative overflow-hidden">
-        {/* Subtle Watermark Logo */}
-        <div className="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-[350px] sm:w-[500px] md:w-[650px] h-[350px] sm:h-[500px] md:h-[650px] pointer-events-none select-none z-0 opacity-[0.03] dark:opacity-[0.015]">
-          <img src={logoDark} alt="" className="w-full h-full object-contain dark:hidden" />
-          <img src={logoLight} alt="" className="w-full h-full object-contain hidden dark:block" />
-        </div>
-
-        <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground">
-                Powering Homes, Businesses & Roller Shutter Systems Across Melbourne
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                Professional electrical services, installations, maintenance and specialists in roller shutters, outdoor blinds and awnings across Melbourne.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button variant="hero" size="xl" asChild>
-                  <Link to="/contact">Enquire Now</Link>
-                </Button>
-              </div>
+        <div className="container mx-auto relative z-10 max-w-5xl flex flex-col items-center text-center">
+          <div className="animate-fade-in flex flex-col items-center mb-12">
+            <img
+              src={heroLogo}
+              alt="Fuzed Electrical Solutions"
+              className="h-28 md:h-36 w-auto mb-8 object-contain"
+            />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground text-balance">
+              Powering Homes, Businesses & Roller Shutter Systems Across Melbourne
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
+              Professional electrical services, installations, maintenance and specialists in roller shutters, outdoor blinds and awnings across Melbourne.
+            </p>
+            <div className="flex justify-center">
+              <Button variant="hero" size="xl" asChild>
+                <Link to="/contact">Enquire Now</Link>
+              </Button>
             </div>
-            <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <img
-                src={heroImage}
-                alt="Roller shutter motor and accessories — professional product range by Fuzed Electrical Solutions"
-                className="w-full rounded shadow-xl"
-                loading="eager"
-              />
-            </div>
+          </div>
+          <div className="animate-fade-in w-full max-w-4xl mx-auto" style={{ animationDelay: "0.2s" }}>
+            <img
+              src={heroImage}
+              alt="Roller shutter motor and accessories — professional product range by Fuzed Electrical Solutions"
+              className="w-full rounded shadow-2xl border border-border"
+              loading="eager"
+            />
           </div>
         </div>
       </section>
