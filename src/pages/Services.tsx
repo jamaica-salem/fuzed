@@ -14,9 +14,8 @@ const services = [
       "Industrial installations",
       "Lighting, power circuits and switchboards",
       "Specialised electrical systems",
-      "Work completed to Australian electrical regulations",
+      "Electrical installations completed in accordance with AS/NZ electrical standards and regulatory requirements",
     ],
-    coverage: "Melbourne, Victoria",
   },
   {
     icon: Building2,
@@ -31,7 +30,6 @@ const services = [
       "Fast response to reduce downtime",
       "Safety and compliance focused",
     ],
-    coverage: "Melbourne, Victoria",
   },
   {
     icon: Wrench,
@@ -45,13 +43,12 @@ const services = [
       "Safe and efficient electrical connections",
       "Reliable and smooth automation performance",
     ],
-    coverage: "Melbourne, Victoria",
   },
   {
     icon: AlertTriangle,
     title: "Communications / Data / CCTV",
     description:
-      "Modern homes and businesses rely on strong communication and security infrastructure. We provide professional installation of data cabling, network points and CCTV systems to ensure reliable connectivity and security coverage. Whether you're setting up a new network, expanding an existing system or installing surveillance cameras, we deliver neat, organised and high-performance solutions tailored to your needs.",
+      "Homes and businesses rely on strong communication and security infrastructure. We provide professional installation of data cabling, network points and CCTV systems to ensure reliable connectivity and security coverage. Whether you're setting up a new network, expanding an existing system or installing surveillance cameras, we deliver neat, organised and high-performance solutions tailored to your needs.",
     features: [
       "Data cabling installation",
       "Network point installation",
@@ -60,7 +57,6 @@ const services = [
       "New setups and system expansions",
       "Neat and organised installations",
     ],
-    coverage: "Melbourne, Victoria",
   },
   {
     icon: Radio,
@@ -75,7 +71,6 @@ const services = [
       "Electrical layout design support",
       "Modern standards and long-term reliability",
     ],
-    coverage: "Melbourne, Victoria",
   },
 ];
 
@@ -103,7 +98,6 @@ const Services = () => {
                 </div>
                 <h2 className="text-3xl font-bold text-foreground mb-4">{service.title}</h2>
                 <p className="text-muted-foreground mb-6">{service.description}</p>
-                <p className="text-sm font-medium text-foreground mb-6">Area/Coverage: {service.coverage}</p>
                 <Button asChild>
                   <Link to="/contact">Get a Quote <ArrowRight className="w-4 h-4 ml-1" /></Link>
                 </Button>
