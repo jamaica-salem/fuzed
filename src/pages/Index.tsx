@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import heroImage from "@/assets/hero-product.jpg";
-import logoDark from "@/assets/fuzed-logo-dark.png";
-import logoLight from "@/assets/fuzed-logo-light.png";
+import logoForLightMode from "@/assets/fuzed-horizontal-logo-light.jpeg";
+import logoForDarkMode from "@/assets/fuzed-horizontal-logo-dark.jpeg";
 
 const Index = () => {
   const [mounted, setMounted] = useState(false);
@@ -17,7 +17,7 @@ const Index = () => {
     setMounted(true);
   }, []);
 
-  const heroLogo = mounted ? (resolvedTheme === "dark" ? logoLight : logoDark) : logoDark;
+  const heroLogo = mounted ? (resolvedTheme === "dark" ? logoForDarkMode : logoForLightMode) : logoForLightMode;
 
   const highlightProductIds = [
     "dual-channel-receiver-switch",
