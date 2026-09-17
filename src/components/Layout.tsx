@@ -75,7 +75,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Main Nav */}
       <header className="bg-background border-b border-border sticky top-0 z-50">
-        <div className="container mx-auto flex items-center justify-between lg:justify-normal h-28 px-4 relative">
+        <div className="container mx-auto flex items-center justify-between lg:justify-normal h-20 lg:h-24 px-4 relative">
           {/* Mobile ThemeToggle (left) */}
           <div className="lg:hidden z-10">
             <ThemeToggle />
@@ -102,7 +102,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <img
                 src={headerLogo}
                 alt="Fuzed Electrical Solutions"
-                className={`h-14 lg:h-20 w-auto transition-all duration-300 ${
+                className={`h-10 lg:h-14 w-auto transition-all duration-300 ${
                   location.pathname !== "/" || isScrolled
                     ? "opacity-100 scale-100 pointer-events-auto"
                     : "opacity-0 scale-95 pointer-events-none"

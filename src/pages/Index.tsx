@@ -40,7 +40,7 @@ const Index = () => {
             <img
               src={heroLogo}
               alt="Fuzed Electrical Solutions"
-              className="h-28 md:h-36 w-auto mb-8 object-contain"
+              className="h-14 md:h-18 lg:h-20 w-auto mb-12 md:mb-16 object-contain"
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground text-balance">
               Powering Homes, Businesses & Roller Shutter Systems Across Melbourne
